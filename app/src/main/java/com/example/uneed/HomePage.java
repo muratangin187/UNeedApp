@@ -28,8 +28,7 @@ public class HomePage extends AppCompatActivity
         if (exit) {
             finish(); // finish activity
         } else {
-            Toast.makeText(this, "Press Back again to Exit.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press Back again to Exit.", Toast.LENGTH_SHORT).show();
             exit = true;
             new Handler().postDelayed(new Runnable() {
                 @Override

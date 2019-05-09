@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">UNeed</string>
-        <string-array name="category_array">
-            <item>All Categories</item>
-            <item>Math 101</item>
-            <item>MBG 110</item>
-            <item>CS 101</item>
-            <item>CS 224</item>
-            <item>Private Lessons</item>
-        </string-array>
+    <string-array name="category_array">
+        <item>All Categories</item>
+        <item>Math 101</item>
+        <item>MBG 110</item>
+        <item>CS 101</item>
+        <item>CS 224</item>
+        <item>Private Lessons</item>
+    </string-array>
 </resources>

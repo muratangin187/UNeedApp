@@ -50,8 +50,8 @@ public class ListItemRequest extends PerformNetworkRequest
                 Item item = new Item(itemJson.getInt("item_id"),itemJson.getInt("seller_id"),itemJson.getString("title"),itemJson.getString("photo"),itemJson.getInt("price"),itemJson.getString("description"),itemJson.getInt("category_id"),itemJson.getString("item_date"));
                 if(MarketActivity.checkValid(item))
                     MarketActivity.items.add(item);
-
             }
+            MarketActivity.sortList();
             MarketActivity.listViewAdapter.notifyDataSetChanged();
             isFinished = true;
             //MarketActivity.result.setText(itemJson.getString("title"));

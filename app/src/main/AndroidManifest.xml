@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FilterActivity"></activity>
+        <activity android:name=".SortActivity"></activity>
+        <activity android:name=".FilterActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".ItemViewActivity" />
         <activity android:name=".MessageBoxActivity" />
