@@ -2,6 +2,7 @@ package com.example.uneed;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,9 @@ public class MarketActivity extends Activity
     public static Context mContext;
     public static ListView itemListView;
     public static ItemListViewAdapter listViewAdapter;
+    public static int category_id;
+    public static int min_price = 0;
+    public static int max_price = 500;
     PerformNetworkRequest request;
     public static ArrayList<Item> items;
     @Override
@@ -46,7 +50,39 @@ public class MarketActivity extends Activity
         itemListView.setAdapter(listViewAdapter);
         mContext = this;
         request = (PerformNetworkRequest)(new ListItemRequest(Api.URL_LIST_ITEMS,new HashMap<String, String>(),CODE_GET_REQUEST)).execute();
+        Intent intent = getIntent();
+        if(intent.hasExtra("category_id")) {
+            //Log.i("AMK",intent.getExtras().toString());
+            category_id = intent.getExtras().getInt("category_id");
+            min_price = (int)intent.getExtras().getLong("min_price");
+            max_price = (int)intent.getExtras().getLong("max_price");
+            //Log.i("PRICE", String.valueOf(min_price));
+        }
+    }
 
+    public static boolean checkValid(Item item)
+    {
+        //Log.i("AMK",String.valueOf(item.getPrice()));
+        //Log.i("AMK",String.valueOf(min_price));
+        //Log.i("AMK",String.valueOf(max_price));
+        if(min_price <= item.getPrice() && item.getPrice() <= max_price)
+        {
+
+            if(category_id == 0)
+                return true;
+
+            if(category_id == item.getCategory_id())
+                return true;
+
+        }
+        return false;
+    }
+
+    public void filterOpen(View view)
+    {
+        Intent i = new Intent(this, FilterActivity.class);
+        startActivity(i);
+        finish();
     }
 
 }

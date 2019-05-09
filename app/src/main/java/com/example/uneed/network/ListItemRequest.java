@@ -23,6 +23,7 @@ import java.util.HashMap;
 
 public class ListItemRequest extends PerformNetworkRequest
 {
+    boolean isFinished = false;
     public ListItemRequest(String url, HashMap<String, String> params, int requestCode)
     {
         super(url, params, requestCode);
@@ -41,19 +42,26 @@ public class ListItemRequest extends PerformNetworkRequest
         JSONObject itemJson = null;
         try
         {
-            Log.i("DENEME",result.toString());
+            //Log.i("DENEME",result.toString());
             for(int i = 0; i < result.length()-1; i++)
             {
                 itemJson = result.getJSONObject(String.valueOf(i));
-                Log.i("BAK", itemJson.getString("title"));
+                //Log.i("BAK", itemJson.getString("title"));
                 Item item = new Item(itemJson.getInt("item_id"),itemJson.getInt("seller_id"),itemJson.getString("title"),itemJson.getString("photo"),itemJson.getInt("price"),itemJson.getString("description"),itemJson.getInt("category_id"),itemJson.getString("item_date"));
-                MarketActivity.items.add(item);
+                if(MarketActivity.checkValid(item))
+                    MarketActivity.items.add(item);
+
             }
             MarketActivity.listViewAdapter.notifyDataSetChanged();
+            isFinished = true;
             //MarketActivity.result.setText(itemJson.getString("title"));
         } catch (JSONException e)
         {
             e.printStackTrace();
         }
+    }
+    public boolean isFinished()
+    {
+        return isFinished;
     }
 }
