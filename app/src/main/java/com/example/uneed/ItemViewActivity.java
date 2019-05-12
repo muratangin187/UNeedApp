@@ -34,7 +34,7 @@ public class ItemViewActivity extends AppCompatActivity
         int itemId = getIntent().getIntExtra("ITEM_ID",0);
         item = MarketActivity.items.get(itemId-1);
         itemImageView = findViewById(R.id.itemImageView);
-        itemTitleView = findViewById(R.id.itemTitleView);
+        itemTitleView = findViewById(R.id.add_item_title);
         itemSellerView = findViewById(R.id.itemSellerView);
         itemPriceView = findViewById(R.id.itemPriceView);
         itemDateView = findViewById(R.id.itemDateView);

@@ -125,13 +125,14 @@ public class MarketActivity extends Activity
 
     public static void sortList()
     {
-        if(sort_id == 2131296409)
+        Log.i("SORT",String.valueOf(sort_id));
+        if(sort_id == 2131296423)
         {
             Collections.sort(items,new ItemNameComparator());
-        }else if(sort_id == 2131296410)
+        }else if(sort_id == 2131296424)
         {
             Collections.sort(items, new ItemDateComparator());
-        }else if(sort_id == 2131296411)
+        }else if(sort_id == 2131296425)
         {
             Collections.sort(items, new ItemPriceComparator());
         }

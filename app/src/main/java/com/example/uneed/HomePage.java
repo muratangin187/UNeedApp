@@ -13,13 +13,17 @@ import com.example.uneed.structures.GlobalData;
 public class HomePage extends AppCompatActivity
 {
     boolean exit = false;
-
+    static int counter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        ((GlobalData)this.getApplication()).setVariable(MainActivity.user.getId());
+        if(counter == 0)
+        {
+            ((GlobalData)this.getApplication()).setVariable(MainActivity.user.getId());
+            counter = 1;
+        }
         ((TextView) findViewById(R.id.textView2)).setText("Welcome, " + MainActivity.user.getUsername());
     }
 
