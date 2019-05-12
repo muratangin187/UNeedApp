@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.example.uneed.HomePage;
 import com.example.uneed.MainActivity;
+import com.example.uneed.structures.SignUpActivity;
 import com.example.uneed.structures.User;
 
 import org.json.JSONException;
@@ -24,7 +25,7 @@ public class RegisterRequest extends PerformNetworkRequest
     protected void onPreExecute()
     {
         super.onPreExecute();
-        MainActivity.resultText.setText("New user is creating...");
+//        SignUpActivity.resultText.setText("New user is creating...");
     }
 
     @Override
@@ -33,7 +34,8 @@ public class RegisterRequest extends PerformNetworkRequest
         super.onPostExecute(s);
         try
         {
-            MainActivity.resultText.setText(result.getString("message"));
+//            SignUpActivity.resultText.setText("Eroooodofoofd");
+            SignUpActivity.userExists = true;
             if(result.getBoolean("error") == false)
             {
                 MainActivity.user = new User(result.getInt("userid"),result.getString("username"),result.getString("email"),result.getString("password"));
