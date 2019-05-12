@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
+        android:name=".structures.GlobalData"
         android:allowBackup="true"
         android:icon="@drawable/defaulticon"
         android:label="@string/app_name"
@@ -13,11 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SortActivity"></activity>
+        <activity android:name=".MessageBox"></activity>
+        <activity android:name=".SortActivity" />
         <activity android:name=".FilterActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".ItemViewActivity" />
-        <activity android:name=".MessageBoxActivity" />
+        <activity android:name=".MessageActivity" />
         <activity
             android:name=".MarketActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

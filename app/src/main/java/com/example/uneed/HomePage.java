@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
+import com.example.uneed.structures.GlobalData;
 
 public class HomePage extends AppCompatActivity
 {
@@ -19,8 +19,10 @@ public class HomePage extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        ((GlobalData)this.getApplication()).setVariable(MainActivity.user.getId());
         ((TextView) findViewById(R.id.textView2)).setText("Welcome, " + MainActivity.user.getUsername());
     }
+
 
     @Override
     public void onBackPressed()
@@ -53,7 +55,7 @@ public class HomePage extends AppCompatActivity
 
     public void openMessageBox(View view)
     {
-        Intent i = new Intent(this, MessageBoxActivity.class);
+        Intent i = new Intent(this, MessageBox.class);
         startActivity(i);
     }
 

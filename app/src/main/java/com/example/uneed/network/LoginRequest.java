@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.example.uneed.HomePage;
 import com.example.uneed.MainActivity;
+import com.example.uneed.structures.GlobalData;
 import com.example.uneed.structures.User;
 
 import org.json.JSONException;
