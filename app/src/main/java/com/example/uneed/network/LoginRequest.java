@@ -4,7 +4,11 @@ import android.content.Intent;
 
 import com.example.uneed.HomePage;
 import com.example.uneed.MainActivity;
+<<<<<<< HEAD
 import com.example.uneed.structures.LoginActivity;
+=======
+import com.example.uneed.structures.GlobalData;
+>>>>>>> a05780be9d73dd592cbdcadf38363a7be72f2ba8
 import com.example.uneed.structures.User;
 
 import org.json.JSONException;
