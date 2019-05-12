@@ -3,6 +3,8 @@ package com.example.uneed;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +38,7 @@ public class MarketActivity extends Activity
     public static ItemListViewAdapter listViewAdapter;
 
     public static TextView searchTextview;
+    FloatingActionButton addItem;
 
     public static int category_id;
     public static int min_price = 0;
@@ -58,6 +61,9 @@ public class MarketActivity extends Activity
         mContext = this;
         searchTextview = (TextView)findViewById(R.id.searchText);
 
+        addItem = findViewById(R.id.addItem);
+
+
         request = (PerformNetworkRequest)(new ListItemRequest(Api.URL_LIST_ITEMS,new HashMap<String, String>(),CODE_GET_REQUEST)).execute();
 
         Intent intent = getIntent();
@@ -73,6 +79,16 @@ public class MarketActivity extends Activity
             sort_id = intent.getExtras().getInt("sort_id");
             //Log.i("PRICE", String.valueOf(min_price));
         }
+
+        addItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                addItem();
+            }
+        });
+
     }
 
     public static boolean checkValid(Item item)
@@ -134,5 +150,12 @@ public class MarketActivity extends Activity
 
         itemListView.setAdapter(newListViewAdapter);
         newListViewAdapter.notifyDataSetChanged();
+    }
+
+    public void addItem()
+    {
+        Intent i = new Intent(this, addItemActivity.class);
+        startActivity(i);
+        finish();
     }
 }

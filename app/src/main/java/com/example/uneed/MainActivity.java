@@ -14,9 +14,10 @@ import android.widget.TextView;
 import com.example.uneed.network.LoginRequest;
 import com.example.uneed.network.PerformNetworkRequest;
 import com.example.uneed.network.RegisterRequest;
+import com.example.uneed.structures.LoginActivity;
+import com.example.uneed.structures.SignUpActivity;
 import com.example.uneed.structures.User;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -45,77 +46,77 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
          mContext = this;
         resultText = findViewById(R.id.textView);
-        usernameText = findViewById(R.id.editText);
-        passwordText = findViewById(R.id.editText2);
-        emailText = findViewById(R.id.editText3);
+        usernameText = findViewById(R.id.login_username);
+        passwordText = findViewById(R.id.login_pass);
+        emailText = findViewById(R.id.sign_up_email);
         tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
-        {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab)
-            {
-                Log.i("TAG", "onTabSelected: " + tab.getText());
-                if(tab.getPosition() == 0)
-                {
-                    emailText.setVisibility(View.GONE);
-                    findViewById(R.id.button2).setVisibility(GONE);
-                    findViewById(R.id.button).setVisibility(View.VISIBLE);
-                    resultText.setText("");
-                }else
-                {
-                    emailText.setVisibility(View.VISIBLE);
-                    findViewById(R.id.button2).setVisibility(View.VISIBLE);
-                    findViewById(R.id.button).setVisibility(GONE);
-                    resultText.setText("");
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab)
-            {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab)
-            {
-
-            }
-        });
+//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
+//        {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab)
+//            {
+//                Log.i("TAG", "onTabSelected: " + tab.getText());
+//                if(tab.getPosition() == 0)
+//                {
+//                    emailText.setVisibility(View.GONE);
+//                    findViewById(R.id.button2).setVisibility(GONE);
+//                    findViewById(R.id.button).setVisibility(View.VISIBLE);
+//                    resultText.setText("");
+//                }else
+//                {
+//                    emailText.setVisibility(View.VISIBLE);
+//                    findViewById(R.id.button2).setVisibility(View.VISIBLE);
+//                    findViewById(R.id.button).setVisibility(GONE);
+//                    resultText.setText("");
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab)
+//            {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab)
+//            {
+//
+//            }
+//        });
     }
 
-    public void login(View view)
-    {
-        String username = usernameText.getText().toString().trim();
-        String password = passwordText.getText().toString().trim();
-
-        //validating the inputs
-        if (TextUtils.isEmpty(username)) {
-            usernameText.setError("Please enter name");
-            usernameText.requestFocus();
-            return;
-        }
-
-        if (TextUtils.isEmpty(password)) {
-            passwordText.setError("Please enter password");
-            passwordText.requestFocus();
-            return;
-        }
-
-        //if validation passes
-
-        HashMap<String, String> params = new HashMap<>();
-        params.put("username", username);
-        params.put("password", password);
-
-
-        //Calling the create user API
-        request = new LoginRequest(Api.URL_LOGIN, params, CODE_POST_REQUEST);
-        request.execute();
-    }
+//    public void login(View view)
+//    {
+//        String username = usernameText.getText().toString().trim();
+//        String password = passwordText.getText().toString().trim();
+//
+//        //validating the inputs
+//        if (TextUtils.isEmpty(username)) {
+//            usernameText.setError("Please enter name");
+//            usernameText.requestFocus();
+//            return;
+//        }
+//
+//        if (TextUtils.isEmpty(password)) {
+//            passwordText.setError("Please enter password");
+//            passwordText.requestFocus();
+//            return;
+//        }
+//
+//        //if validation passes
+//
+//        HashMap<String, String> params = new HashMap<>();
+//        params.put("username", username);
+//        params.put("password", password);
+//
+//
+//        //Calling the create user API
+//        request = new LoginRequest(Api.URL_LOGIN, params, CODE_POST_REQUEST);
+//        request.execute();
+//    }
 
     public void register(View view) {
         String username = usernameText.getText().toString().trim();
@@ -150,6 +151,18 @@ public class MainActivity extends AppCompatActivity {
         request = new RegisterRequest(Api.URL_CREATE_USER, params, CODE_POST_REQUEST);
         request.execute();
 
+    }
+
+    public void openLogin(View view){
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    public void openSingUp(View view){
+        Intent i = new Intent(this, SignUpActivity.class);
+        startActivity(i);
+        finish();
     }
 }
 

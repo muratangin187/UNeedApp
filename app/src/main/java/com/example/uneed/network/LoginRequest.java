@@ -4,7 +4,11 @@ import android.content.Intent;
 
 import com.example.uneed.HomePage;
 import com.example.uneed.MainActivity;
+<<<<<<< HEAD
+import com.example.uneed.structures.LoginActivity;
+=======
 import com.example.uneed.structures.GlobalData;
+>>>>>>> a05780be9d73dd592cbdcadf38363a7be72f2ba8
 import com.example.uneed.structures.User;
 
 import org.json.JSONException;
@@ -26,7 +30,7 @@ public class LoginRequest extends PerformNetworkRequest
     protected void onPreExecute()
     {
         super.onPreExecute();
-        MainActivity.resultText.setText("Please wait...");
+        LoginActivity.resultText.setText("Please wait...");
     }
 
     @Override
@@ -42,7 +46,7 @@ public class LoginRequest extends PerformNetworkRequest
                 mContext.startActivity(i);
             }else
             {
-                MainActivity.resultText.setText(result.getString("message"));
+                LoginActivity.resultText.setText(result.getString("message"));
             }
         } catch (JSONException e)
         {
