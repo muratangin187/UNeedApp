@@ -15,6 +15,7 @@ import java.util.HashMap;
 public class GetMessagesRequest extends PerformNetworkRequest
 {
     boolean isFinished = false;
+    static JSONObject old = null;
     public GetMessagesRequest(String url, HashMap<String, String> params, int requestCode)
     {
         super(url, params, requestCode);
@@ -34,6 +35,11 @@ public class GetMessagesRequest extends PerformNetworkRequest
         try
         {
             //Log.i("DENEME",result.toString());
+            if(old == null)
+                old = result;
+            Log.i("CHECK",String.valueOf(old == result));
+            Log.i("CHECK DATA old:",old.toString(2));
+            Log.i("CHECK DATA result:",result.toString(2));
             MessageActivity.chatArrayAdapter.clear();
             for(int i = 0; i < result.length()-1; i++)
             {
@@ -54,6 +60,7 @@ public class GetMessagesRequest extends PerformNetworkRequest
             }
             isFinished = true;
             //MarketActivity.result.setText(messagesJson.getString("title"));
+            old = result;
         } catch (JSONException e)
         {
             e.printStackTrace();

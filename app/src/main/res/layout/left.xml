@@ -8,13 +8,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginBottom="5dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/textview"
-        android:paddingBottom="8dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
         android:text="Sampleleft"
         android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/date_msgr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/msgr"
+        android:layout_alignBottom="@+id/msgr"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="4dp"
+        android:text="TextViewsol"
+        android:textSize="8sp" />
 </RelativeLayout>

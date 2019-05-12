@@ -1,12 +1,10 @@
 package com.example.uneed.structures;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.uneed.R;
@@ -17,6 +15,7 @@ import java.util.List;
 public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
 
     private TextView chatText;
+    private TextView chatDate;
     public List<ChatMessage> chatMessageList = new ArrayList<ChatMessage>();
     private Context context;
     public static int maxId;
@@ -72,6 +71,9 @@ public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
         }
         chatText = (TextView) row.findViewById(R.id.msgr);
         chatText.setText(chatMessageObj.message);
+        chatDate = row.findViewById(R.id.date_msgr);
+        String result = chatMessageObj.date.substring(11,16);
+        chatDate.setText(result);
         return row;
     }
 }

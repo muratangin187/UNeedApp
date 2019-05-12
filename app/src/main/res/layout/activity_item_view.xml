@@ -98,6 +98,7 @@
                     android:layout_height="53dp"
                     android:layout_weight="1"
                     android:background="@drawable/make_contact"
+                    android:onClick="createChat"
                     android:text="Make Contact" />
             </LinearLayout>
 

@@ -27,7 +27,6 @@ public class MessageBox extends AppCompatActivity {
     static public ArrayAdapter<String> listAdapter ;
     static public ArrayList<Integer> user_ids;
     private int from_id;
-    private int to_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +36,10 @@ public class MessageBox extends AppCompatActivity {
 
         Intent intent = getIntent();
         from_id = ((GlobalData)this.getApplication()).getVariable();
-        //to_id = (int)intent.getExtras().getLong("to_id");
-        to_id = 2;
         HashMap<String, String> params = new HashMap<>();
 
         params.put("fromid", String.valueOf(from_id));
+        Log.i("deneme",params.get("fromid"));
         PerformNetworkRequest request = (PerformNetworkRequest)(new CheckMessageBoxRequest(Api.URL_GET_ALL_MESSAGES,params,CODE_POST_REQUEST)).execute();
 
 

@@ -45,7 +45,7 @@ public class PerformNetworkRequest extends AsyncTask<Void, Void, String>
             //if (!object.getBoolean("error")) {
             //refreshing the herolist after every operation
             //so we get an updated list
-            //we will create this method right now it is commented
+            //we will create this method right3 now it is commented
             //because we haven't created it yet
             //refreshHeroList(object.getJSONArray("heroes"));
             //}

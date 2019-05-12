@@ -19,7 +19,6 @@
         <activity android:name=".MessageBox"></activity>
         <activity android:name=".SortActivity" />
         <activity android:name=".FilterActivity" />
-        <activity android:name=".ChatActivity" />
         <activity android:name=".structures.LoginActivity" />
         <activity android:name=".structures.SignUpActivity" />
         <activity android:name=".addItemActivity" />

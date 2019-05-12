@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -45,7 +44,6 @@ public class MessageActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-
         buttonSend = findViewById(R.id.send);
 
         listView = (ListView) findViewById(R.id.msgview);
@@ -128,7 +126,19 @@ public class MessageActivity extends AppCompatActivity
             chatText.requestFocus();
             return false;
         }
-        ChatMessage newMessage = new ChatMessage(chatText.getText().toString(), getDate(), ((GlobalData)this.getApplication()).getVariable(), to_id);
+        String result = "";
+        int counter = 0;
+        for(int i = 0; i < chatText.getText().toString().length(); i++)
+        {
+            counter++;
+            result += chatText.getText().toString().charAt(i);
+            if( counter > 30 && chatText.getText().toString().charAt(i) == ' ')
+            {
+                result += "\n";
+                counter = 0;
+            }
+        }
+        ChatMessage newMessage = new ChatMessage(result, getDate(), ((GlobalData)this.getApplication()).getVariable(), to_id);
         newMessage.setLeft(true);
         chatArrayAdapter.add(newMessage);
         HashMap<String, String> params = new HashMap<>();

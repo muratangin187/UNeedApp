@@ -14,14 +14,18 @@
     <EditText
         android:id="@+id/msg"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
 
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/confirm_password_box"
+        android:gravity="top"
         android:hint="New message"
         android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/send"
@@ -30,9 +34,10 @@
     <ImageButton
         android:id="@+id/send"
         android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
+        android:paddingBottom="30dp"
         android:background="@drawable/send_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,10 +46,13 @@
 
     <ListView
         android:id="@+id/msgview"
-        android:layout_width="416dp"
-        android:layout_height="526dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/chat_background"
+        android:layout_width="423dp"
+        android:layout_height="607dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/messages_list"
         android:divider="@null"
         android:dividerHeight="0dp"
         android:isScrollContainer="false"
@@ -52,6 +60,8 @@
         app:layout_constraintBottom_toTopOf="@+id/msg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.619"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -3,14 +3,19 @@ package com.example.uneed.network;
 import android.util.Log;
 
 import com.example.uneed.Api;
+import com.example.uneed.HomePage;
 import com.example.uneed.MainActivity;
+import com.example.uneed.MarketActivity;
 import com.example.uneed.MessageActivity;
 import com.example.uneed.MessageBox;
 import com.example.uneed.structures.ChatMessage;
+import com.example.uneed.structures.GlobalData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -37,6 +42,7 @@ public class CheckMessageBoxRequest extends PerformNetworkRequest
         JSONObject messagesJson = null;
         try
         {
+
             Log.i("DENEME",s);
             ArrayList<Integer> added = new ArrayList<Integer>();
             for(int i = 0; i < result.length()-1; i++)
@@ -44,21 +50,23 @@ public class CheckMessageBoxRequest extends PerformNetworkRequest
                 messagesJson = result.getJSONObject(String.valueOf(i));
                 int tempFrom = messagesJson.getInt("from_id");
                 int tempTo = messagesJson.getInt("to_id");
-                if(!added.contains(tempFrom) && !added.contains(tempTo))
-                    added.add(messagesJson.getInt("to_id"));
-            }
-            isFinished = true;
-            for(int item : added)
-            {
-                PerformNetworkRequest request;
-                //Calling the create user API
-                HashMap<String, String> params = new HashMap<>();
-                params.put("id", String.valueOf(item));
-                request = new GetNameRequest(Api.URL_GET_NAME, params, CODE_POST_REQUEST);
-                request.execute();
+
+                if(!added.contains(tempFrom) && !added.contains(tempTo)) {
+                    if(MainActivity.user.getId() != messagesJson.getInt("to_id"))
+                        added.add(messagesJson.getInt("to_id"));
+                    else
+                        added.add(messagesJson.getInt("from_id"));
+                    PerformNetworkRequest request;
+                    //Calling the create user API
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("id", String.valueOf(added.get(added.size()-1)));
+                    request = new GetNameRequest(Api.URL_GET_NAME, params, CODE_POST_REQUEST);
+                    request.execute();
+                }
             }
             //MessageBox.listAdapter.add(messagesJson.getString("from_id"));
             //MarketActivity.result.setText(messagesJson.getString("title"));
+
 
         } catch (JSONException e)
         {
