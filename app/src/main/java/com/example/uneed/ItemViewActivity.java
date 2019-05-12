@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ public class ItemViewActivity extends AppCompatActivity
     TextView itemDateView;
     TextView itemDescriptionView;
     Button wishlistButton;
-    Button chatButton;
+    ImageButton chatButton;
 
     Item item;
 
@@ -39,7 +40,7 @@ public class ItemViewActivity extends AppCompatActivity
         itemPriceView = findViewById(R.id.itemPriceView);
         itemDateView = findViewById(R.id.itemDateView);
         itemDescriptionView = findViewById(R.id.itemDescriptionView);
-        wishlistButton = findViewById(R.id.wishlistButton);
+//        wishlistButton = findViewById(R.id.wishlistButton);
         chatButton = findViewById(R.id.chatButton);
         settings();
     }
@@ -47,10 +48,10 @@ public class ItemViewActivity extends AppCompatActivity
     private void settings()
     {
         Picasso.get().load(item.getPhoto()).into(itemImageView);
-        itemTitleView.setText(item.getTitle());
-        itemSellerView.setText(String.valueOf(item.getSeller_id()));
-        itemPriceView.setText(String.valueOf(item.getPrice()));
-        itemDateView.setText(item.getDate());
-        itemDescriptionView.setText(item.getDescription());
+        itemTitleView.setText("Title\n" + item.getTitle());
+        itemSellerView.setText("Seller\n" + String.valueOf(item.getSeller_id()));
+        itemPriceView.setText("Price\n" + String.valueOf(item.getPrice()));
+        itemDateView.setText("Date\n" + item.getDate());
+        itemDescriptionView.setText("Description\n" + item.getDescription());
     }
 }

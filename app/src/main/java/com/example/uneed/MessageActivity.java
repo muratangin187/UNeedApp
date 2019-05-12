@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.uneed.network.GetMessagesRequest;
@@ -34,7 +35,7 @@ public class MessageActivity extends AppCompatActivity
     public static ChatArrayAdapter chatArrayAdapter;
     private ListView listView;
     private EditText chatText;
-    private Button buttonSend;
+    private ImageButton buttonSend;
     private boolean side = false;
     private int from_id;
     private int to_id;
@@ -45,7 +46,7 @@ public class MessageActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        buttonSend = (Button) findViewById(R.id.send);
+        buttonSend = findViewById(R.id.send);
 
         listView = (ListView) findViewById(R.id.msgview);
         Intent intent = getIntent();

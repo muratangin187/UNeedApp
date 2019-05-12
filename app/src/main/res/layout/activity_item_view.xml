@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/login_background"
     tools:context=".ItemViewActivity">
 
     <ImageView
         android:id="@+id/itemImageView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="255dp"
         android:background="@android:color/black"
         app:srcCompat="@mipmap/ic_launcher" />
 
@@ -37,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:padding="10dp"
-                android:text="title" />
+                android:text="title"
+                android:textColor="#FFFFFF" />
 
 
             <TextView
@@ -46,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:padding="10dp"
-                android:text="seller" />
+                android:text="seller"
+                android:textColor="#FFFFFF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,7 +62,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:padding="10dp"
-                    android:text="price" />
+                    android:text="price"
+                    android:textColor="#FFFFFF" />
 
                 <TextView
                     android:id="@+id/itemDateView"
@@ -67,17 +71,19 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:padding="10dp"
-                    android:text="date" />
+                    android:text="date"
+                    android:textColor="#FFFFFFFF" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/itemDescriptionView"
                 android:layout_width="match_parent"
-                android:layout_height="179dp"
+                android:layout_height="101dp"
                 android:layout_margin="10dp"
                 android:padding="10dp"
                 android:text="description"
+                android:textColor="#FFFFFFFF"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="553dp" />
 
@@ -86,17 +92,12 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/wishlistButton"
-                    android:layout_width="217dp"
-                    android:layout_height="wrap_content"
-                    android:text="Add my wishlist" />
-
-                <Button
+                <ImageButton
                     android:id="@+id/chatButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="350dp"
+                    android:layout_height="53dp"
                     android:layout_weight="1"
+                    android:background="@drawable/make_contact"
                     android:text="Make Contact" />
             </LinearLayout>
 
