@@ -22,6 +22,12 @@ import java.util.HashMap;
 
 import static com.example.uneed.MarketActivity.CODE_POST_REQUEST;
 
+/**
+ * When user clicks an item on the marketplace
+ * this class starts running and shows the information of an item
+ * @author fistikci_sahap
+ * @version 3.0
+ */
 public class ItemViewActivity extends AppCompatActivity
 {
 
@@ -41,9 +47,9 @@ public class ItemViewActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_view);
         int itemId = getIntent().getIntExtra("ITEM_ID",0);
-        Log.i("Item id " ,itemId+"");
+        //Log.i("Item id " ,itemId+"");
         item = MarketActivity.items.get(itemId-1);
-        Log.i("Item ", item.toString());
+        //Log.i("Item ", item.toString());
         itemImageView = findViewById(R.id.itemImageView);
         itemTitleView = findViewById(R.id.itemTitleView);
         itemSellerView = findViewById(R.id.itemSellerView);
@@ -55,6 +61,11 @@ public class ItemViewActivity extends AppCompatActivity
         settings();
     }
 
+    /**
+     * This method initiates MessageActivity class
+     * when user clicks 'make contact' button
+     * @param view
+     */
     public void createChat(View view)
     {
         Intent i = new Intent(this, MessageActivity.class);
@@ -62,6 +73,10 @@ public class ItemViewActivity extends AppCompatActivity
         startActivity(i);
     }
 
+    /**
+     * This method pulls the information from database 
+     * and show it to the description part
+     */
     private void settings()
     {
         Picasso.get().load(item.getPhoto()).into(itemImageView);

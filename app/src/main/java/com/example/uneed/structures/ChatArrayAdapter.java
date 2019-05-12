@@ -12,13 +12,18 @@ import com.example.uneed.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class shows the previous messages between users
+ * @author fistikci_sahap
+ * @version 3.0
+ */
 public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
 
     private TextView chatText;
     private TextView chatDate;
     public List<ChatMessage> chatMessageList = new ArrayList<ChatMessage>();
     private Context context;
-    public static int maxId;
+    public static int maxId; // last message id
     @Override
     public void add(ChatMessage object) {
         chatMessageList.add(object);
@@ -27,16 +32,27 @@ public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
         super.add(object);
     }
 
+    /**
+     * Cleans the messages when user exits the chat room
+     */
     public void clear()
     {
         chatMessageList.clear();
     }
 
+    /**
+     * 
+     * @return static int ID of the last message
+     */
     public static int getMaxId()
     {
         return maxId;
     }
-
+    /**
+     * This method adds every message for only one time
+     * @param id
+     * @return boolean whether the message added to the array or not
+     */
     public boolean contains(int id)
     {
 
@@ -47,6 +63,7 @@ public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
         }
         return false;
     }
+    
     public ChatArrayAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
         this.context = context;

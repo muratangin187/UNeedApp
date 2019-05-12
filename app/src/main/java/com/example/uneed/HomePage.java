@@ -10,6 +10,12 @@ import android.widget.Toast;
 
 import com.example.uneed.structures.GlobalData;
 
+/**
+ * When user log in the app
+ * this class execute and shows the opions to the user
+ * @author fistikci_sahap
+ * @version 4.0
+ */
 public class HomePage extends AppCompatActivity
 {
     boolean exit = false;
@@ -29,7 +35,7 @@ public class HomePage extends AppCompatActivity
 
 
     @Override
-    public void onBackPressed()
+    public void onBackPressed() // Exits on double back
     {
         if (exit) {
             finish(); // finish activity
@@ -46,23 +52,34 @@ public class HomePage extends AppCompatActivity
         }
     }
 
-    public void wishlist(View view)
-    {
-
-    }
-
+    /**
+     * When user clicks 'Market Place'
+     * this method initiates MerketActivity class
+     * @param view
+     */
     public void openMarket(View view)
     {
         Intent i = new Intent(this, MarketActivity.class);
         startActivity(i);
     }
 
+    /**
+     * When user clicks 'Messages'
+     * this method initiates MessageBox class
+     * @param view
+     */
     public void openMessageBox(View view)
     {
         Intent i = new Intent(this, MessageBox.class);
         startActivity(i);
     }
 
+    /**
+     * When user clicks 'Log Out'
+     * this method initiates MainActivity class 
+     * and exits the user's personal page
+     * @param view
+     */
     public void logout(View view)
     {
         Intent i = new Intent(this, MainActivity.class);

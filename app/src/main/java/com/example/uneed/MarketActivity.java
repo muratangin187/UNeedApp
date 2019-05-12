@@ -29,6 +29,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+/**
+ * It's the basic Market for showing items, searching, sorting and filtering
+ * @author fistikci_sahap
+ * @version 5.0
+ */
 public class MarketActivity extends Activity
 {
     public static final int CODE_GET_REQUEST = 1024;
@@ -91,31 +96,40 @@ public class MarketActivity extends Activity
 
     }
 
+    /**
+     * This method checks whether item fits the filter options or not
+     * @param item
+     * @return boolean whether item is what user is looking or not
+     */
     public static boolean checkValid(Item item)
     {
-        //Log.i("AMK",String.valueOf(item.getPrice()));
-        //Log.i("AMK",String.valueOf(min_price));
-        //Log.i("AMK",String.valueOf(max_price));
         if(min_price <= item.getPrice() && item.getPrice() <= max_price)
         {
-
             if(category_id == 0)
                 return true;
 
             if(category_id == item.getCategory_id())
                 return true;
-
         }
         return false;
     }
-
+    /**
+     * This method starts FilterActivity class 
+     * when user clicks the filter button
+     * @param view
+     */
     public void filterOpen(View view)
     {
         Intent i = new Intent(this, FilterActivity.class);
         startActivity(i);
         finish();
     }
-
+    
+    /**
+     * This method starts SortActivity class 
+     * when user clicks the sort button
+     * @param view
+     */
     public void sortOpen(View view)
     {
         Intent i = new Intent(this,SortActivity.class);
@@ -123,6 +137,12 @@ public class MarketActivity extends Activity
         finish();
     }
 
+    /**
+     * This method lists the items for user's option
+     *  - Date
+     *  - Price
+     *  - Name
+     */
     public static void sortList()
     {
         Log.i("SORT",String.valueOf(sort_id));
@@ -138,6 +158,10 @@ public class MarketActivity extends Activity
         }
     }
 
+    /**
+     * This method is basic search method when user starts typing in the search bar
+     * @param view
+     */
     public void searchButton(View view)
     {
         ArrayList<Item> searchedItems = new ArrayList<Item>();
@@ -152,7 +176,9 @@ public class MarketActivity extends Activity
         itemListView.setAdapter(newListViewAdapter);
         newListViewAdapter.notifyDataSetChanged();
     }
-
+    /**
+     * This method starts addItemActivity class
+     */
     public void addItem()
     {
         Intent i = new Intent(this, addItemActivity.class);

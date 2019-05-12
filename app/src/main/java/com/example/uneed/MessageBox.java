@@ -21,6 +21,10 @@ import java.util.List;
 
 import static com.example.uneed.MainActivity.CODE_POST_REQUEST;
 
+/**
+ * @author fistikci_sahap
+ * @version 1.0
+ */
 public class MessageBox extends AppCompatActivity {
 
     ListView messageBoxList;
@@ -36,14 +40,12 @@ public class MessageBox extends AppCompatActivity {
 
         Intent intent = getIntent();
         from_id = ((GlobalData)this.getApplication()).getVariable();
-        HashMap<String, String> params = new HashMap<>();
+        HashMap<String, String> params = new HashMap<>(); // For network post it holds the parametres
 
         params.put("fromid", String.valueOf(from_id));
-        Log.i("deneme",params.get("fromid"));
+        //Log.i("deneme",params.get("fromid"));
         PerformNetworkRequest request = (PerformNetworkRequest)(new CheckMessageBoxRequest(Api.URL_GET_ALL_MESSAGES,params,CODE_POST_REQUEST)).execute();
 
-
-        // Create ArrayAdapter using the planet list.
         listAdapter = new ArrayAdapter<String>(this, R.layout.simplerow);
 
         // Set the ArrayAdapter as the ListView's adapter.
@@ -55,7 +57,7 @@ public class MessageBox extends AppCompatActivity {
                 // Get the selected item text from ListView
                 String selectedItem = (parent.getItemAtPosition(position).toString());
                 selectedItem = selectedItem.substring(0,selectedItem.indexOf(" "));
-                Log.i("ASD", selectedItem);
+                //Log.i("ASD", selectedItem);
                 i.putExtra("to_id", Integer.valueOf(selectedItem));
                 startActivity(i);
             }

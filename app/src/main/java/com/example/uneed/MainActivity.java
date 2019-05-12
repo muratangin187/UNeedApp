@@ -24,6 +24,11 @@ import java.util.HashMap;
 
 import static android.view.View.GONE;
 
+/**
+ * This class creates the enter page for user
+ * @author fistikci_sahap
+ * @version 6.0
+ */
 public class MainActivity extends AppCompatActivity {
 
     public static final int CODE_GET_REQUEST = 1024;
@@ -55,12 +60,22 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
     }
 
+    /**
+     * When user clicks login page, 
+     * this method executes LoginActivity class and stops this class
+     * @param view
+     */
     public void openLogin(View view){
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
         finish();
     }
-
+    
+    /**
+     * When user clicks register page, 
+     * this method executes SignUpActivity class and stops this class
+     * @param view
+     */
     public void openSingUp(View view){
         Intent i = new Intent(this, SignUpActivity.class);
         startActivity(i);

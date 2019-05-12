@@ -20,6 +20,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+/**
+ * Manage items for listing and showing it to the user in marketplace
+ * @author fistikci_sahap
+ * @version 1.0
+ */
 public class ItemListViewAdapter extends ArrayAdapter<Item>
 {
     private final LayoutInflater inflater;
@@ -97,6 +102,10 @@ public class ItemListViewAdapter extends ArrayAdapter<Item>
     }
 
 
+    /**
+     * @author fistikci_sahap
+     * @version 1.0
+     */
     private static class ViewHolder {
         TextView titleView;
         TextView priceView;

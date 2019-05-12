@@ -14,6 +14,11 @@ import com.example.uneed.network.RegisterRequest;
 
 import java.util.HashMap;
 
+/**
+ * This class compares the user entries with database
+ * @author fistikci_sahap
+ * @version 1.0
+ */
 public class SignUpActivity extends AppCompatActivity {
 
     public static final int CODE_GET_REQUEST = 1024;
@@ -40,9 +45,6 @@ public class SignUpActivity extends AppCompatActivity {
         confirmPass = findViewById(R.id.sign_up_confirm_pass);
         resultText = findViewById(R.id.sign_up_result);
         userExists = false;
-
-
-
     }
 
     public void signUp(View view) {

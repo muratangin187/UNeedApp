@@ -29,6 +29,13 @@ import java.util.TimerTask;
 
 import static com.example.uneed.MainActivity.CODE_POST_REQUEST;
 
+/**
+ * This class is a chat activity class. 
+ * When users start messaging with each other 
+ * this class sends and receives the messages from database.
+ * @author fistikci_sahap
+ * @version 2.0
+ */
 public class MessageActivity extends AppCompatActivity
 {
     public static ChatArrayAdapter chatArrayAdapter;
@@ -50,7 +57,7 @@ public class MessageActivity extends AppCompatActivity
         Intent intent = getIntent();
         from_id = ((GlobalData)this.getApplication()).getVariable();
         to_id = intent.getExtras().getInt("to_id");
-        Log.i("AM",String.valueOf(to_id));
+        //Log.i("M",String.valueOf(to_id));
         //to_id = 2;
         chatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.right);
         listView.setAdapter(chatArrayAdapter);
@@ -83,8 +90,6 @@ public class MessageActivity extends AppCompatActivity
             }
         });
 
-
-
         final Handler handler = new Handler();
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -98,7 +103,7 @@ public class MessageActivity extends AppCompatActivity
 
                         params.put("fromid", String.valueOf(from_id));
                         params.put("toid", String.valueOf(to_id));
-                        Log.i("HAYOF",params.toString());
+                        //Log.i("HAYOF",params.toString());
                         PerformNetworkRequest request = (PerformNetworkRequest)(new GetMessagesRequest(Api.URL_GET_MESSAGES,params,CODE_POST_REQUEST)).execute();
 
                     }
@@ -109,10 +114,7 @@ public class MessageActivity extends AppCompatActivity
         timer = new Timer();
 
         timer.schedule(timerTask,1000,3000);
-
-
     }
-
 
     @Override
     public void onPause() {
@@ -120,9 +122,13 @@ public class MessageActivity extends AppCompatActivity
         timer.cancel();
     }
 
+    /**
+     * This method is for sending message to an another user
+     * @return true if user send the message, false otherwise 
+     */
     public boolean sendChatMessage() {
-        if (TextUtils.isEmpty(chatText.getText())) {
-            chatText.setError("Please enter password");
+        if (TextUtils.isEmpty(chatText.getText())) { // If message box is empty
+            chatText.setError("Please enter message");
             chatText.requestFocus();
             return false;
         }
@@ -132,14 +138,14 @@ public class MessageActivity extends AppCompatActivity
         {
             counter++;
             result += chatText.getText().toString().charAt(i);
-            if( counter > 30 && chatText.getText().toString().charAt(i) == ' ')
+            if( counter > 30 && chatText.getText().toString().charAt(i) == ' ') // if the message is long
             {
                 result += "\n";
                 counter = 0;
             }
         }
         ChatMessage newMessage = new ChatMessage(result, getDate(), ((GlobalData)this.getApplication()).getVariable(), to_id);
-        newMessage.setLeft(true);
+        newMessage.setLeft(true); // message seen in the left side of the panel
         chatArrayAdapter.add(newMessage);
         HashMap<String, String> params = new HashMap<>();
         params.put("fromid", String.valueOf(newMessage.from_id));
@@ -154,10 +160,14 @@ public class MessageActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * This method returns date and time of the message
+     * @return String
+     */
     private String getDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentDateandTime = sdf.format(new Date());
-        Log.i("DATE", currentDateandTime);
+        //Log.i("DATE", currentDateandTime);
         return currentDateandTime;
     }
 }

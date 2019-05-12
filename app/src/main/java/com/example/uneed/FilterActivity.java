@@ -15,6 +15,12 @@ import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 
 import java.util.HashMap;
 
+/**
+ * When user clicks filter button 
+ * this class shows price range and category options
+ * @author fistikci_sahap
+ * @version 1.0
+ */
 public class FilterActivity extends AppCompatActivity {
 
     CrystalRangeSeekbar rangeSeekbar;
@@ -54,6 +60,11 @@ public class FilterActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This methods initiates MarketActivity class and sends
+     * the information that user desired (specific category or price range) 
+     * @param view
+     */
     public void closeFilter(View view)
     {
         Intent i = new Intent(this, MarketActivity.class);
