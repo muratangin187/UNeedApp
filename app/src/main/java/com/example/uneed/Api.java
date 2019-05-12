@@ -1,6 +1,7 @@
 package com.example.uneed;
 
 public class Api {
+
     private static final String ROOT_URL = "http://muratangin.com/myworks/uneed/api.php?apicall=";
 
     public static final String URL_CREATE_USER = ROOT_URL + "createUser";
@@ -11,5 +12,5 @@ public class Api {
     public static final String URL_SEND_MESSAGES = ROOT_URL + "sendMessage";
     public static final String URL_GET_ALL_MESSAGES = ROOT_URL + "getAllMessages";
     public static final String URL_GET_NAME = ROOT_URL + "getName";
-
+    public static final String URL_ADD_ITEM = ROOT_URL + "addItem";
 }
