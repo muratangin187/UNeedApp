@@ -52,6 +52,11 @@ import java.util.Map;
 
 import static com.example.uneed.MainActivity.CODE_POST_REQUEST;
 
+/**
+ * This class adds items to the database
+ * @author fistikci_sahap
+ * @version 3.0
+ */
 public class addItemActivity extends AppCompatActivity {
 
     public EditText title;
@@ -231,6 +236,10 @@ public class addItemActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This method creates  new item and sends it to the database
+     * @param view
+     */
     public void addItem(View view)
     {
         if(true)
@@ -264,6 +273,10 @@ public class addItemActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method closes the addItemActivity and initiates MarketActivity class
+     * @param view
+     */
     public void closeAddItem(View view)
     {
         Intent i = new Intent(this, MarketActivity.class);

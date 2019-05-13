@@ -14,6 +14,11 @@ import com.example.uneed.network.PerformNetworkRequest;
 
 import java.util.HashMap;
 
+/**
+ * This class checks whether user enters the correct information or not
+ * @author fistikci_sahap
+ * @version 1.0 
+ */
 public class LoginActivity extends AppCompatActivity {
 
     public static final int CODE_GET_REQUEST = 1024;

@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+/**
+ * This class connects the sort page's xml to market activity, 
+ * and sends the sort information to MarketActivity
+ * @author fistikci_sahap
+ * @version 2.0
+ */
 public class SortActivity extends AppCompatActivity {
 
     RadioGroup radioSort;
@@ -18,6 +24,11 @@ public class SortActivity extends AppCompatActivity {
         radioSort = (RadioGroup)findViewById(R.id.radioSort);
     }
 
+    /**
+     * This method send the information of sort page and what user want to see
+     * and this methods starts MarketActivity class
+     * @param view
+     */
     public void closeSort(View view)
     {
         int index = radioSort.indexOfChild(findViewById(radioSort.getCheckedRadioButtonId()));

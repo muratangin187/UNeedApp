@@ -1,5 +1,10 @@
 package com.example.uneed;
 
+/**
+ * Contains settled Strings for easier use 
+ * @author fistikci_sahap
+ * @version 1.0
+ */
 public class Api {
 
     private static final String ROOT_URL = "http://muratangin.com/myworks/uneed/api.php?apicall=";
