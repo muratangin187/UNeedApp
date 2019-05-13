@@ -12,6 +12,12 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+/**
+ * This class send request to the server
+ * in order to get messages from the database
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class GetMessagesRequest extends PerformNetworkRequest
 {
     boolean isFinished = false;
@@ -34,7 +40,7 @@ public class GetMessagesRequest extends PerformNetworkRequest
         JSONObject messagesJson = null;
         try
         {
-            //Log.i("DENEME",result.toString());
+            //Log.i("TMP",result.toString());
             if(old == null)
                 old = result;
             Log.i("CHECK",String.valueOf(old == result));
@@ -47,8 +53,8 @@ public class GetMessagesRequest extends PerformNetworkRequest
                 //Log.i("BAK", messagesJson.toString());
                 ChatMessage message = new ChatMessage(messagesJson.getString("message"),messagesJson.getString("date"),messagesJson.getInt("from_id"),messagesJson.getInt("to_id"));
                 message.setId(messagesJson.getInt("id"));
-                //Log.i("AQ",String.valueOf(MainActivity.user.getId()));
-                //Log.i("AQ",String.valueOf(messagesJson.getInt("to_id")));
+                //Log.i("MUR",String.valueOf(MainActivity.user.getId()));
+                //Log.i("MUR",String.valueOf(messagesJson.getInt("to_id")));
                 if(MainActivity.user.getId() == messagesJson.getInt("to_id"))
                     message.setLeft(false);
                 else
@@ -66,6 +72,12 @@ public class GetMessagesRequest extends PerformNetworkRequest
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method holds the status that
+     * whether execution is provide or not
+     * @return boolean isFinished
+     * */
     public boolean isFinished()
     {
         return isFinished;

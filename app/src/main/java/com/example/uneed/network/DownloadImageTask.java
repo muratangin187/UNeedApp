@@ -11,6 +11,12 @@ import com.example.uneed.R;
 
 import java.io.InputStream;
 
+/**
+ * This class takes pics from internet
+ * and implement it to the android
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     ImageView bmImage;
 
@@ -18,20 +24,10 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         this.bmImage = bmImage;
     }
 
-    protected Bitmap doInBackground(String... urls) {
-        String urldisplay = urls[0];
-        Bitmap mIcon11 = null;
-        try {
-            InputStream in = new java.net.URL(urldisplay).openStream();
-            mIcon11 = BitmapFactory.decodeStream(in);
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-            return BitmapFactory.decodeResource(MarketActivity.mContext.getResources(), R.drawable.defaulticon);
-        }
-        return mIcon11;
-    }
-
+    /**
+     * This method sets images after execution
+     * @param result Bitmap
+     * */
     protected void onPostExecute(Bitmap result) {
         bmImage.setImageBitmap(result);
     }

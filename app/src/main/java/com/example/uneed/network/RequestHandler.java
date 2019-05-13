@@ -13,6 +13,13 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
+/**
+ * This class cretea requestes which require to get data from server
+ * there are two request type we provided
+ * (POST - GET)
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class RequestHandler {
 
     //Method to send httpPostRequest

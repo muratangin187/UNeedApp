@@ -12,9 +12,16 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+/**
+ * This class send request to the server
+ * in order to get names from the database
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class GetNameRequest extends PerformNetworkRequest
 {
     boolean isFinished = false;
+
     public GetNameRequest(String url, HashMap<String, String> params, int requestCode)
     {
         super(url, params, requestCode);
@@ -40,6 +47,12 @@ public class GetNameRequest extends PerformNetworkRequest
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method holds the status that
+     * whether execution is provide or not
+     * @return boolean isFinished
+     * */
     public boolean isFinished()
     {
         return isFinished;

@@ -21,9 +21,16 @@ import java.util.HashMap;
 
 import static com.example.uneed.MainActivity.CODE_POST_REQUEST;
 
+/**
+ * This class send request to the server
+ * in order to check message box
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class CheckMessageBoxRequest extends PerformNetworkRequest
 {
     boolean isFinished = false;
+
     public CheckMessageBoxRequest(String url, HashMap<String, String> params, int requestCode)
     {
         super(url, params, requestCode);
@@ -73,6 +80,12 @@ public class CheckMessageBoxRequest extends PerformNetworkRequest
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method holds the status that
+     * whether execution is provide or not
+     * @return boolean isFinished
+     * */
     public boolean isFinished()
     {
         return isFinished;

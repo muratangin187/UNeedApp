@@ -21,6 +21,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
+/**
+ * This class send request to the server
+ * in order to take items from database
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class ListItemRequest extends PerformNetworkRequest
 {
     boolean isFinished = false;
@@ -60,6 +66,12 @@ public class ListItemRequest extends PerformNetworkRequest
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method holds the status that
+     * whether execution is provide or not
+     * @return boolean isFinished
+     * */
     public boolean isFinished()
     {
         return isFinished;

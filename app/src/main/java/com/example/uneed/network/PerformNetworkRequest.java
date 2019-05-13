@@ -7,6 +7,11 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+/**
+ * Main network class [every subclasses extends this class]
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class PerformNetworkRequest extends AsyncTask<Void, Void, String>
 {
 

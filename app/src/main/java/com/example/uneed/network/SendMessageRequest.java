@@ -14,6 +14,12 @@ import java.util.HashMap;
 
 import static com.example.uneed.MainActivity.mContext;
 
+/**
+ * This class send request to the server
+ * in order to reach sended messages
+ * @author  fistikci_sahap
+ * @version 1.0
+ * */
 public class SendMessageRequest extends PerformNetworkRequest
 {
 
