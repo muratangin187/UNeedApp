@@ -83,6 +83,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/select_image_pic"
+        android:onClick="selectPhoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"

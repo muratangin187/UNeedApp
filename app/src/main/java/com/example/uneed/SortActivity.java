@@ -20,8 +20,9 @@ public class SortActivity extends AppCompatActivity {
 
     public void closeSort(View view)
     {
+        int index = radioSort.indexOfChild(findViewById(radioSort.getCheckedRadioButtonId()));
         Intent i = new Intent(this, MarketActivity.class);
-        i.putExtra("sort_id", radioSort.getCheckedRadioButtonId());
+        i.putExtra("sort_id", index);
         startActivity(i);
         finish();
     }

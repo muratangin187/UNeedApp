@@ -126,13 +126,13 @@ public class MarketActivity extends Activity
     public static void sortList()
     {
         Log.i("SORT",String.valueOf(sort_id));
-        if(sort_id == 2131296423)
+        if(sort_id == 0)
         {
             Collections.sort(items,new ItemNameComparator());
-        }else if(sort_id == 2131296424)
+        }else if(sort_id == 1)
         {
             Collections.sort(items, new ItemDateComparator());
-        }else if(sort_id == 2131296425)
+        }else if(sort_id == 2)
         {
             Collections.sort(items, new ItemPriceComparator());
         }
@@ -143,7 +143,7 @@ public class MarketActivity extends Activity
         ArrayList<Item> searchedItems = new ArrayList<Item>();
         for(int i = 0; i < items.size(); i++)
         {
-            if(items.get(i).getTitle().contains(searchTextview.getText())) {
+            if(items.get(i).getTitle().contains((searchTextview.getText()).toString().toUpperCase()) || items.get(i).getTitle().contains((searchTextview.getText()).toString().toLowerCase())) {
                 searchedItems.add(items.get(i));
             }
         }

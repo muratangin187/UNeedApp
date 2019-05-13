@@ -21,7 +21,12 @@ public class HomePage extends AppCompatActivity
         setContentView(R.layout.activity_home_page);
         if(counter == 0)
         {
-            ((GlobalData)this.getApplication()).setVariable(MainActivity.user.getId());
+            try{
+                ((GlobalData)this.getApplication()).setVariable(MainActivity.user.getId());
+            }catch (RuntimeException e)
+            {
+                e.printStackTrace();
+            }
             counter = 1;
         }
         ((TextView) findViewById(R.id.textView2)).setText("Welcome, " + MainActivity.user.getUsername());
